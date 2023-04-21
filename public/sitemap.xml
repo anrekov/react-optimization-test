@@ -1,0 +1,30 @@
+  <xml version="1.0" encoding="UTF-8">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>http://localhost:3000</loc>
+        <lastmod>2023-04-21</lastmod>
+        <!-- always - каждое посещение, hourly, daily, weekly, monthly, yearly, never - архив -->
+        <changefreq>monthly</changefreq>
+        <!-- 0 to 1; default: 0.5 - чем выше, тем чаще в поиске будет появляться конкретная страница из тех, что есть на сайте -->
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>http://localhost:3000/main</loc>
+        <lastmod>2023-04-21</lastmod>
+      </url>
+      <url>
+        <loc>http://localhost:3000/second</loc>
+        <lastmod>2023-04-21</lastmod>
+        <priority>0.3</priority>
+      </url>
+      <url>
+        <loc>http://localhost:3000/third</loc>
+        <lastmod>2023-04-21</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+      <url>
+        <loc>http://localhost:3000/lh</loc>
+        <lastmod>2023-04-21</lastmod>
+      </url>
+    </urlset>
+  </xml>

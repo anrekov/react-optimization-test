@@ -1,3 +1,40 @@
 # https://www.robotstxt.org/robotstxt.html
+# Разрешить доступ для всех роботов:
 User-agent: *
 Disallow:
+# ИЛИ
+User-agent: *
+Allow: /
+
+# Закрыть доступ ко всему сайту для всех роботов:
+User-agent: *
+Disallow: /
+
+# Разрешить сканеру Яндекса доступ ко всему, кроме этих маршрутов:
+User-agent: Yandex
+Disallow: /second
+Disallow: /third
+# Частота опроса для сканирования
+Request-rate: 10/1m
+# Устанавливает каноническое доменное имя для текущего сервера, который обслуживал файл robots.
+Host: www.example.com
+
+# Разрешить загрузке Яндекса и Googlebot доступ только к этим маршрутам с параметрами:
+User-agent: Yandex
+User-agent: Googlebot
+Disallow: /
+Allow: /lh
+# Запрещает поисковым роботам часто посещать сайт, т.к. это замедлит работу сайта. (пауза 20 сек)
+Crawl-delay: 20
+# Это ограничивает время для сканера (UTC). Содержимое может быть проиндексировано только между заданным интервалом времени.
+Visit-time: 01:00-07:00
+
+# Специальная дериктива Indexpage для китайских ботов (Indexpage - часто обновляемая страница, которую надо чаще индексировать)
+User-Agent: HaoSouSpider
+User-Agent: 360Spider
+Disallow:  
+Indexpage: https://www.example.com/articles/archive/
+# Указывает параметры запроса, не влияющие на контент (например, отслеживание), которые следует удалить из URL-адресов.
+Clean-param: referral /
+
+Sitemap: http://localhost:3000/sitemap.xml 

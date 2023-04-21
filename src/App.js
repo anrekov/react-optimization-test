@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import { useDeferredValue, useMemo, useState } from 'react'
+import './App.css'
+import { Card, Card2 } from './components/Card'
+import { Text, Text2 } from './components/Text'
+import { Helmet } from 'react-helmet'
+
+const elements = ['one', 'two']
 
 function App() {
+  const [input, setInput] = useState('')
+
+  const isInputExist = useMemo(() => !!input.length, [input.length])
+
+  const deferredInput = useDeferredValue(input, { timeoutMs: 2000 })
+
+  // const getData = () => {}
+
+  // const handleClick = useCallback(() => {
+  //   getData()
+  // })
+
+  // return <button onClick={handleClick}>add more</button>
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Helmet>
+        <meta name='description' content='Test app' />
+        <meta name='keywords' content='test app react optimization memo' />
+        <title>Main page</title>
+      </Helmet>
+
+      <input
+        autoFocus
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+
+      {/* <h1>{input}</h1>
+      <h1>{deferredInput}</h1> */}
+
+      {/* Приколы JSX/React в плане статики */}
+      <p>Просто текст, который не при делах</p>
+      <Text />
+      <Text2 />
+
+      <div className='card-wrapper'>
+        <div className='divider'>Без оптимизации</div>
+        {!!input && elements.map((el) => <Card key={el}>{el}</Card>)}
+
+        <div className='divider'>Без оптимизации и зависимости</div>
+        {elements.map((el) => (
+          <Card key={el}>{el}</Card>
+        ))}
+
+        <div className='divider'>useMemo спасёт?</div>
+        {isInputExist && elements.map((el) => <Card key={el}>{el}</Card>)}
+
+        <div className='divider'>memo</div>
+        {!!input && elements.map((el) => <Card2 key={el}>{el}</Card2>)}
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
