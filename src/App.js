@@ -34,24 +34,24 @@ function App() {
       <TestUC cb={cbUCB} />
 
       {/* Приколы JSX/React в плане статики */}
-      {/* <p>Просто текст, который не при делах</p>
+      <p>Просто текст, который не при делах</p>
       <Text />
-      <Text2 /> */}
+      <Text2 />
 
       <div className='card-wrapper'>
         <div className='divider'>Без оптимизации</div>
         {!!input && elements.map((el) => <Card key={el}>{el}</Card>)}
 
-        {/* <div className='divider'>Без оптимизации и зависимости</div>
+        <div className='divider'>Без оптимизации и зависимости</div>
         {elements.map((el) => (
           <Card key={el}>{el}</Card>
-        ))} */}
+        ))}
 
-        {/* <div className='divider'>useMemo спасёт?</div>
-        {isInputExist && elements.map((el) => <Card key={el}>{el}</Card>)} */}
+        <div className='divider'>useMemo спасёт?</div>
+        {isInputExist && elements.map((el) => <Card key={el}>{el}</Card>)}
 
-        {/* <div className='divider'>memo</div>
-        {!!input && elements.map((el) => <Card2 key={el}>{el}</Card2>)} */}
+        <div className='divider'>memo</div>
+        {!!input && elements.map((el) => <Card2 key={el}>{el}</Card2>)}
       </div>
     </div>
   )
