@@ -1,4 +1,4 @@
-import { useDeferredValue, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import './App.css'
 import { Card, Card2 } from './components/Card'
 import { Text, Text2 } from './components/Text'
@@ -10,16 +10,6 @@ function App() {
   const [input, setInput] = useState('')
 
   const isInputExist = useMemo(() => !!input.length, [input.length])
-
-  const deferredInput = useDeferredValue(input, { timeoutMs: 2000 })
-
-  // const getData = () => {}
-
-  // const handleClick = useCallback(() => {
-  //   getData()
-  // })
-
-  // return <button onClick={handleClick}>add more</button>
 
   return (
     <div className='App'>
@@ -34,9 +24,6 @@ function App() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-
-      {/* <h1>{input}</h1>
-      <h1>{deferredInput}</h1> */}
 
       {/* Приколы JSX/React в плане статики */}
       <p>Просто текст, который не при делах</p>
